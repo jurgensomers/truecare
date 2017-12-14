@@ -1,0 +1,100 @@
+ 
+<div class="row" style="margin-bottom: 10px">
+    <div class="col-md-2 col-md-offset-5">
+        <img src="../../assets/images/TrueCare24_logo.png">
+    </div>
+</div>
+<div class="row" style="margin-bottom: 10px">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-1" style="background-image: url('../../assets/images/Step 1.png');width:150px;height:50px">
+    Step 1
+  </div>
+  <div class="col-lg-1" style="background-image: url('../../assets/images/Step 2.png');width:150px;height:50px">
+    Step 2
+  </div>
+  <div class="col-lg-1" style="background-image: url('../../assets/images/Step 3.png');width:150px;height:50px">
+    Step 3
+  </div>
+  <div class="col-lg-1" style="background-image: url('../../assets/images/Step 4.png');width:150px;height:50px">
+    Step 4
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 panel panel-default" style="width:600px">
+     <div class="panel-body"> 
+       <h2><b>Please complete the form to join the TrueCare24 network</b></h2>
+      <form>
+        <fieldset>
+          <!-- Who are you -->
+          <div class="form-group">
+            <label for="role" class="control-label">Who are you?</label>
+            <div>
+            <!--  <select [(ngModel)]="role" placeholder="" name="role" class="form-control" 
+              required #role="ngModel" [ngClass]="{'is-invalid': role.invalid}" >
+              <option>Caregiver</option>
+                <option>Doctor</option>
+                <option>Nurse</option>
+                <option>Podiatrist</option>
+                <option>Therapist</option>
+                <option>Phlobotomist</option>
+                <option>Other</option>
+          </select>-->
+            </div>
+          </div>
+
+        
+          <!-- First name -->
+          <div class="form-group">
+            <label for="firstname" class="control-label">First name</label>
+            <div class="lg-col-6">
+              <input type="text" class="form-control" id="firstname" [(ngModel)]="firstname" name="firstname" required>
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="form-group">
+            <label for="lastname" class="control-label">Last name</label>
+            <div class="lg-col-6">
+              <input type="text" class="form-control" id="lastname" [(ngModel)]="lastname" name="lastname" required>
+            </div>
+          </div>
+
+          <!-- ZIP Code -->
+          <div class="form-group">
+            <label for="zipcode" class="control-label">ZIP code where you live</label>
+            <div class="lg-col-6">
+              <input type="text" class="form-control" id="zipcode" [(ngModel)]="zipcode" name="zipcode" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            <div class="lg-col-6">
+              <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+            </div>
+          </div>
+
+          <!-- Cell phone -->
+          <div class="form-group">
+            <label for="cellphone" class="control-label">Cell phone</label>
+            <div class="lg-col-6">
+              <input type="text" class="form-control" id="cellphone" [(ngModel)]="cellphone" name="cellphone" required>
+            </div>
+          </div>
+
+          
+
+          <!-- buttons -->
+          <div class="form-group">
+            <div class="col-lg-12"> 
+              <button type="submit" class="btn btn-primary col-lg-12" (click)="submit()">Submit</button>
+            </div>
+          </div>
+        </fieldset>
+      </form> 
+    </div>
+  </div>
+</div>
