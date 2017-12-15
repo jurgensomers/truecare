@@ -12,10 +12,12 @@ export class Step1Component implements OnInit {
   public lastname:String;
   public email:String;
   public cellphone:String;
+  public roles:String[];
   
   constructor() { }
 
   ngOnInit() {
+    this.roles =["Caregiver", "Doctor", "Nurse", "Podiatrist", "Therapist","Phlobotomist","Other"];
   }
 
   submit(){
