@@ -1,0 +1,33 @@
+<div class="modal-body"> 
+  <h1 class="tcFormHeader">Verification code</h1>  
+  <div class="row justify-content-center">  
+      <label class="tcLabel" style="text-align: center">
+        A verification code has been sent to <span class="highlight">{{phoneNumber}}</span>
+      </label>
+  </div>
+  <form #verifyForm="ngForm" name="verifyForm">
+    <fieldset>
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">        
+            <input type="text" class="form-control tcInput" style="text-align: center" [(ngModel)]="code" name="code" #inputCode="ngModel" required>
+        </div>
+      </div>
+      
+      <div class="row">
+        <a (click)="resend()" href="#" class="text-center tcLinkButton col-lg-12">
+          <img src="../../assets/images/Resend icon.png">
+          Resend the code
+        </a>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+              <button type="submit" (click)="confirm()" [disabled]="!verifyForm.form.valid" class="btn tcButton col-lg-12">Confirm</button>
+          </div>
+      </div>
+    </fieldset> 
+  </form> 
+
+</div>

@@ -1,80 +1,81 @@
  
-<div class="row" style="margin-bottom: 10px;margin-top:10px">
-    <div class="col-lg-4 col-lg-offset-5">
-        <img src="../../assets/images/TrueCare24_logo.png">
-    </div>
+<div class="row justify-content-center" style="margin-bottom: 10px;margin-top:10px">
+  <img src="../../assets/images/TrueCare24_logo.png">
 </div>
 <div class="row" style="margin-bottom: 10px">
   <div class="col-lg-4"></div>
-  <div class="col-lg-1 tcStep1">
+  <div class="tcStep1">
     Step 1
   </div>
-  <div class="col-lg-1 tcStep2">
+  <div class="tcStep2">
     Step 2
   </div>
-  <div class="col-lg-1 tcStep3">
+  <div class="tcStep3">
     Step 3
   </div>
-  <div class="col-lg-1 tcStep4">
+  <div class="tcStep4">
     Step 4
   </div>
 </div>
 
 <div class="row">
   <div class="col-lg-4"></div>
-  <div class="col-lg-4 tcForm">
+  <div class="tcForm was-validated">
     <h1 class="tcFormHeader">Please complete the form to join the TrueCare24 network</h1>
-      <form>
+      <form #thisForm="ngForm" name="myForm">
         <fieldset>
           <!-- Who are you -->
-          <div class="form-group">
-            <label for="role" class="tcLabel">Who are you?</label>
-            <select [(ngModel)]="role"name="role" class="form-control tcInput" >
+          <div class="form-group" [ngClass]="{'has-danger': role.invalid}">
+            <label for="inputRole" class="tcLabel">Who are you?</label>
+            <select [(ngModel)]="data.role" name="inputRole" class="form-control tcInput" style="height:60px" #role="ngModel" required>
                 <option *ngFor="let r of roles" [ngValue]="r"><div class="tcLabel" style="margin:5px">{{r}}</div></option>
             </select>
           </div>
 
-          <div class="col-sm-12 form-group" style="margin:0px;padding:0px;margin-bottom:10px">
-        
-            <!-- First name -->
-            <div class="form-group col-sm-6" style="margin:0px;padding-left:0px;padding-right:10px">
-              <label for="firstname" class="tcLabel">First name</label>
-              <input placeholder="Type here" type="text" class="form-control tcInput" id="firstname" [(ngModel)]="firstname" name="firstname" required>
+          <div class="row">
+             <!-- First name -->
+            <div class="col form-group" [ngClass]="{'has-danger': firstname.invalid}">
+              <label for="inputFirstname" class="tcLabel">First name</label>
+              <input placeholder="Type here" type="text" class="form-control tcInput form-control-danger"
+              [(ngModel)]="data.firstname" name="inputFirstname" required #firstname="ngModel">
             </div>
 
-            <!-- Last name -->
-            <div class="form-group col-sm-6" style="margin:0px;padding-left:10px;padding-right:0px">
-              <label for="lastname" class="tcLabel">Last name</label>
-              <input placeholder="Type here" type="text" class="form-control tcInput"  id="lastname" [(ngModel)]="lastname" name="lastname" required>
+             <!-- Last name -->
+            <div class="col form-group" [ngClass]="{'has-danger': lastname.invalid}">
+                <label for="inputLastname" class="tcLabel">Last name</label>
+                <input placeholder="Type here" type="text" class="form-control tcInput"  [(ngModel)]="data.lastname" name="inputLastname" 
+                required #lastname="ngModel" >
             </div>
           </div>
 
           <!-- ZIP Code -->
-          <div class="form-group">
-            <label for="zipcode" class="tcLabel">ZIP code where you live</label>
-            <input placeholder="Type here" type="text" class="form-control tcInput" id="zipcode"   [(ngModel)]="zipcode" name="zipcode" required>
+          <div class="form-group" [ngClass]="{'has-danger': zipcode.invalid}">
+            <label for="inputZipcode" class="tcLabel">ZIP code where you live</label>
+            <input placeholder="Type here" type="text" class="form-control tcInput"   [(ngModel)]="data.zipcode" name="inputZipcode" 
+            required #zipcode="ngModel">
           </div>
 
           <!-- Email -->
-          <div class="form-group">
-            <label for="email" class="tcLabel">Email</label>
-            <input placeholder="Type here" type="text" class="form-control tcInput" id="email"   [(ngModel)]="email" name="email" required>
+          <div class="form-group" [ngClass]="{'has-danger': email.invalid}">
+            <label for="inputEmail" class="tcLabel">Email</label>
+            <input placeholder="Type here" type="text" class="form-control tcInput"   [(ngModel)]="data.email" name="inputEmail"             
+            [pattern]="emailPattern" required #email="ngModel" >
           </div>
 
           <!-- Cell phone -->
-          <div class="form-group">
-            <label for="cellphone" class="tcLabel">Cell phone</label>
-            <input placeholder="Type here" type="text" class="form-control tcInput" id="cellphone"   [(ngModel)]="cellphone" name="cellphone" required>
-            
+          <div class="form-group" [ngClass]="{'has-danger': cellphone.invalid}">
+            <label for="inputCellphone" class="tcLabel">Cell phone</label>
+            <input placeholder="Type here" type="text" class="form-control tcInput"    [(ngModel)]="data.cellphone" name="inputCellphone" 
+            required [pattern]="phonePattern" #cellphone="ngModel" [ngClass]="{'is-invalid': cellphone.invalid}">
           </div>
 
           <!-- confirmation -->
-          <div class="form-group">            
-            <div class="col-sm-12">
-              <div class="col-sm-2">
-                <input type="checkbox" class="form-control" id="confirmation" style="height:30px"  [(ngModel)]="confirmation" name="confirmation" required>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-1">
+                  <input type="checkbox" class="form-control" id="confirmation" style="height:30px"  [(ngModel)]="confirmation" name="confirmation" required>
               </div>
-              <div class="col-sm-10">
+              <div class="col-lg-11">
                 <label for="confirmation" class="tcLabel" >I confirm that I am duly licensed (as applicable) and have the qualifications, the experience and the ability to properly perform the Services</label>
               </div>
             </div>
@@ -83,11 +84,10 @@
           <!-- buttons -->
           <div class="form-group">
             <div class="col-lg-12"> 
-              <button type="submit" (click)="submit()" class="tcButton">Submit</button>
+              <button type="submit" (click)="submit()" class="btn tcButton col-lg-12" [disabled]="!thisForm.form.valid">Submit</button>
             </div>
           </div>
         </fieldset>
       </form> 
-
   </div>
 </div>

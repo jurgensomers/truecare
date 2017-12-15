@@ -83,6 +83,7 @@ body
     background-image:url('./assets/images/Body.png');
     background-repeat:no-repeat;
     font-family: "lato";
+    padding:15px;
 }
 
 .tcFormHeader
@@ -96,15 +97,22 @@ body
 
 .tcButton
 {
-    background-image:url('./assets/images/Button.png');
+    background:#54D1FF;
     border:none;
-    width:520px;
     height:60px;
     color:white;
     font-weight:bold;
     font-size:14pt;
     font-family: "lato";
     margin-top:20px;
+    border-radius: 6px;
+}
+ 
+
+.tcLinkButton
+{
+    color:#54D1FF;
+    text-align: center;
 }
 
 .tcLabel
@@ -112,5 +120,13 @@ body
     font-family: "lato";
     font-weight: normal;
     font-size:14pt;
-    margin-top:15px;
+    margin-top:10px;
+}
+
+.highlight
+{
+    font-family: "lato";
+    font-weight: normal;
+    font-size:14pt;
+    color:#54D1FF;
 }
